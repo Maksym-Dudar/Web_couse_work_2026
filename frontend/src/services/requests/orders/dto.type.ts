@@ -1,9 +1,9 @@
-import type { IDelivery } from "@/constants/delivery.constants";
+import type { IDeliveryOptions } from "@/shared/types/orders/orders";
 
 export interface IGetUserOrdersDto {
 	total: number;
 	subtotal: number;
-	shippingMethod: IDelivery;
+	shippingMethod: IDeliveryOptions;
 	id: number;
 	userId: number;
 	addressId: number | null;

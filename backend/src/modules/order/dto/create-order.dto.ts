@@ -1,6 +1,5 @@
 import { Type } from 'class-transformer';
-import { IsNumber, ValidateNested, IsArray, IsEnum } from 'class-validator';
-import { ShippingMethod } from '@prisma/client';
+import { IsNumber, ValidateNested, IsArray } from 'class-validator';
 
 class OrderItem {
   @IsNumber()
@@ -21,9 +20,9 @@ export class CreateOrder {
   @Type(() => Number)
   subtotal!: number;
 
-  @IsEnum(ShippingMethod)
-  @Type(() => String)
-  shippingMethod!: ShippingMethod;
+  @IsNumber()
+  @Type(() => Number)
+  shippingMethodId!: number;
 
   @IsArray()
   @ValidateNested({ each: true })

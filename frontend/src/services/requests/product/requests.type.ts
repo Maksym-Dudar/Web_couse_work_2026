@@ -1,9 +1,5 @@
 import type { CreateProductSchema } from "@/features/admin/model/create-product.schema";
 
-export interface IGetDetailsRequest {
-	id: number;
-}
-
 export interface IGetSearchRequest {
 	search: string;
 }

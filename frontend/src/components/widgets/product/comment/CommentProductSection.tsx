@@ -5,8 +5,6 @@
 // import { Error, Loading } from "../..";
 // import PadingXLayouts from "@/components/layout/PaddingXLayouts";
 // import type { IComment } from "../types";
-// import { CustomComment } from "./CustomComment";
-// import { fetchComment } from "@/services/requests/product";
 // import { CommentCard } from "@/components/cards";
 
 // export function CommentProductSection() {

@@ -16,6 +16,7 @@ class ApiConfig {
 	PRODUCT_SEARCH = `${this.PRODUCT}/search`;
 	PRODUCT_BAG = `${this.PRODUCT}/bag`;
 	PRODUCT_GROUP = `${this.PRODUCT}/group`;
+	PRODUCT_DETAILS = `${this.PRODUCT}/details`;
 
 	AUTH = "/auth";
 	AUTH_SIGN_IN = `${this.AUTH}/sign-in`;
@@ -23,6 +24,7 @@ class ApiConfig {
 	AUTH_RESET_PASSWORD_OTP = `${this.AUTH}/reset-password-otp`;
 	AUTH_GENERATE_OTP = `${this.AUTH}/otp-code`;
 	AUTH_LOG_OUT = `${this.AUTH}/log-out`;
+	AUTH_VERIFY_JWT = `${this.AUTH}/verify-jwt`;
 
 	CONTACT = "/contact";
 
@@ -35,6 +37,7 @@ class ApiConfig {
 	getCompleteOrderById(id: number) {
 		return `${this.ORDER}/complete?orderId=${id}`;
 	}
+	DELIVERY_METHODS = "/order/delivery-methods"
 }
 
 export const API = new ApiConfig();

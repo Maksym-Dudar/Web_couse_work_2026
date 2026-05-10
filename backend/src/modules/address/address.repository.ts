@@ -1,6 +1,6 @@
 import { PrismaService } from '@/database/prisma/prisma.service';
 import { Injectable } from '@nestjs/common';
-import { Prisma } from 'generated/prisma/client';
+import { Prisma } from '@prisma/client';
 
 @Injectable()
 export class AddressRepository {
@@ -18,7 +18,7 @@ export class AddressRepository {
     });
   }
 
-  async find(id: number) {
+  async findAllUserAddress(id: number) {
     return this.prisma.address.findMany({
       where: { userId: id },
     });

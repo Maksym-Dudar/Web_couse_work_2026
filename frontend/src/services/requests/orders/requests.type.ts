@@ -1,4 +1,4 @@
-import type { IDelivery } from "@/constants/delivery.constants";
+import type { IDeliveryOptions } from "@/shared/types/orders/orders";
 
 interface OrderItem {
 	productId: number;
@@ -8,7 +8,7 @@ interface OrderItem {
 export interface ICreateOrder {
 	total: number;
 	subtotal: number;
-	shippingMethod: IDelivery;
+	shippingMethodId: number;
 	items: OrderItem[];
 }
 
@@ -18,4 +18,11 @@ export interface IConfirmOrder {
 	firstName: string;
 	lastName: string;
 	email: string;
+}
+
+export interface ICreateShippingMethod {
+	percent: number;
+	fixedFee: number;
+	method: string;
+	label: string;
 }

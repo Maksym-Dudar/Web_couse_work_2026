@@ -1,4 +1,13 @@
-import { Controller, Post, Body, Delete, Res } from '@nestjs/common';
+import {
+  Controller,
+  Post,
+  Body,
+  Delete,
+  Res,
+  Get,
+  Req,
+  UnauthorizedException,
+} from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { SignUpDto } from './dto/sign-up.dto';
 import express from 'express';
@@ -20,7 +29,7 @@ export class AuthController {
     res.cookie('access_token', token, {
       httpOnly: true,
       secure: true,
-      sameSite: 'strict',
+      sameSite: 'none',
       maxAge: 604800,
     });
 
@@ -32,14 +41,18 @@ export class AuthController {
     @Body() dto: SignUpDto,
     @Res({ passthrough: true }) res: express.Response,
   ) {
-    console.log("gooo");
+    console.log('gooo');
     console.log(process.env.JWT_SECRET);
-    const token = await this.authService.signUp(dto.email, dto.password, dto.firstName);
+    const token = await this.authService.signUp(
+      dto.email,
+      dto.password,
+      dto.firstName,
+    );
 
     res.cookie('access_token', token, {
       httpOnly: true,
       secure: true,
-      sameSite: 'strict',
+      sameSite: 'none',
       maxAge: 604800,
     });
 
@@ -61,8 +74,17 @@ export class AuthController {
     res.clearCookie('access_token', {
       httpOnly: true,
       secure: true,
-      sameSite: 'strict',
+      sameSite: 'none',
     });
+    return { success: true };
+  }
+
+  @Get('verify-jwt')
+  async verifyJWT(@Req() req: express.Request) {
+    const token = req.cookies('access_token');
+    const isValid = this.authService.verifyToken(token);
+    if (!isValid) throw new UnauthorizedException('User not authorized');
+    console.log(isValid);
     return { success: true };
   }
 }

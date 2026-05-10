@@ -1,1 +1,0 @@
-{"version":3,"file":"directory.config.js","sourceRoot":"","sources":["../../../src/configs/directory.config.ts"],"names":[],"mappings":";;;AAAA,MAAM,eAAe;IACnB,MAAM,GAAG,SAAS,CAAC;IACnB,IAAI,GAAG,GAAG,IAAI,CAAC,MAAM,OAAO,CAAC;IAC7B,MAAM,GAAG,GAAG,IAAI,CAAC,IAAI,SAAS,CAAC;IAC/B,OAAO,GAAG,GAAG,IAAI,CAAC,MAAM,UAAU,CAAC;CACpC;AAEY,QAAA,SAAS,GAAG,IAAI,eAAe,EAAE,CAAC"}

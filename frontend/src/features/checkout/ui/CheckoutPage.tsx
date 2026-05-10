@@ -12,7 +12,6 @@ import { Loading } from "@/components/widgets";
 import { useErrorToast } from "@/hooks/useErrorToast";
 import { useMutation } from "@tanstack/react-query";
 import { paymentService } from "@/services/requests/payment/payment.services";
-import PaymentProvider from "@/provider/stripe/StripeProvider";
 import { PaymentMethod } from "./PaymentMethod";
 import { AddressMode } from "./AddressMode";
 import { useState } from "react";
@@ -171,7 +170,7 @@ export function CheckoutPage() {
 				</form>
 				<OderSummary
 					data={orderData?.orderItem || []}
-					shippingMethod={orderData?.shippingMethod || "Free"}
+					shippingMethod={orderData.shippingMethod}
 					total={orderData?.total || 0}
 					subtotal={orderData?.subtotal || 0}
 				/>

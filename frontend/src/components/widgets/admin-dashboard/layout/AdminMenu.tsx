@@ -19,9 +19,9 @@ export function AdminMenu() {
 				isActive={path == PAGE.CREATE_PRODUCT.link}
 			/>
 			<MenuLink
-				label={PAGE.ADMIN_ORDERS.label}
-				link={PAGE.ADMIN_ORDERS.link}
-				isActive={path == PAGE.ADMIN_ORDERS.link}
+				label={PAGE.ADMIN_SHIPPING_METHOD.label}
+				link={PAGE.ADMIN_SHIPPING_METHOD.link}
+				isActive={path == PAGE.ADMIN_SHIPPING_METHOD.link}
 			/>
 		</menu>
 	);

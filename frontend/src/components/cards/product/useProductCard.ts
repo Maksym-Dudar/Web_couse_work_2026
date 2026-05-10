@@ -37,14 +37,12 @@ export function useProductCard({ id }: Props) {
 		}
 	};
 
-	const addToBag = (quantity: number) => {};
 
 	return {
 		buttonRef,
 		buttonFavoriteRef,
 		toggleWishlist: () => toggleProduct(id),
 		isInWishlist: isInWishlist(id),
-		addToBag,
 		handleMouseEnter: () => animateButtons(0, 0),
 		handleMouseLeave: () => animateButtons(-BUTTON_OFFSET, BUTTON_OFFSET),
 	};

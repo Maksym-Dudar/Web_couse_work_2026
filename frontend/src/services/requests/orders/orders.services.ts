@@ -1,7 +1,15 @@
 import { instance } from "../axios.interceptor";
 import { API } from "@/config/api.config";
-import type { IOrder, IOrderComplete } from "@/shared/types/orders/orders";
-import type { IConfirmOrder, ICreateOrder } from "./requests.type";
+import type {
+	IDeliveryOptions,
+	IOrder,
+	IOrderComplete,
+} from "@/shared/types/orders/orders";
+import type {
+	IConfirmOrder,
+	ICreateOrder,
+	ICreateShippingMethod,
+} from "./requests.type";
 import type { IGetUserOrdersDto } from "./dto.type";
 
 class OrdersService {
@@ -33,7 +41,15 @@ class OrdersService {
 		const res = (
 			await instance.get<IOrderComplete>(API.getCompleteOrderById(orderId))
 		).data;
-		return { ...res, createdAt: new Date(res.createdAt)}
+		return { ...res, createdAt: new Date(res.createdAt) };
+	}
+
+	async getDeliveryOptions(): Promise<IDeliveryOptions[]> {
+		return (await instance.get(API.DELIVERY_METHODS)).data;
+	}
+
+	async createShippingMethod(payload: ICreateShippingMethod): Promise<[]> {
+		return (await instance.post(API.DELIVERY_METHODS, payload)).data;
 	}
 }
 

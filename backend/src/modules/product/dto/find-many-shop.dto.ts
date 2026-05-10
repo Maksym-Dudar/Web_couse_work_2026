@@ -1,8 +1,7 @@
-import { IsOptional, IsEnum, IsNumberString, IsString, IsNumber } from 'class-validator';
+import { IsOptional, IsEnum, IsString, IsNumber } from 'class-validator';
 import { Type, Transform } from 'class-transformer';
 import { Category } from '@prisma/client';
 import { Sorts } from '@/common/enums/sorts.enum';
-
 
 export class FindManyShopDto {
   @IsNumber()
@@ -10,16 +9,16 @@ export class FindManyShopDto {
   take!: number;
 
   @IsOptional()
-  @IsEnum(Category, { message: 'Invalid category' })
+  @IsEnum([...Object.values(Category), 'ALL'])
   category?: Category | 'ALL';
 
   @IsOptional()
-  @IsNumberString()
+  @IsNumber()
   @Type(() => Number)
   maxPrice?: number;
 
   @IsOptional()
-  @IsNumberString()
+  @IsNumber()
   @Type(() => Number)
   minPrice?: number;
 
@@ -33,9 +32,7 @@ export class FindManyShopDto {
   groupId?: number[];
 
   @IsOptional()
-  @IsNumberString()
+  @IsNumber()
   @Type(() => Number)
   page?: number;
 }
-
-

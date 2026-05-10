@@ -10,7 +10,7 @@ export class EmailQueue {
     },
   });
 
-//   async sendWelcome(email: string) {
-//     await this.queue.add('send-welcome', { email });
-//   }
+  //   async sendWelcome(email: string) {
+  //     await this.queue.add('send-welcome', { email });
+  //   }
 }

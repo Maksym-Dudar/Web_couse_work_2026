@@ -1,6 +1,6 @@
 import { PrismaService } from '@/database/prisma/prisma.service';
 import { Injectable } from '@nestjs/common';
-import { Prisma } from 'generated/prisma/client';
+import { Prisma } from '@prisma/client';
 
 @Injectable()
 export class ProductRepository {
@@ -33,6 +33,7 @@ export class ProductRepository {
       select: {
         id: true,
         price: true,
+        sale: true,
       },
       where: {
         id: {
@@ -108,6 +109,38 @@ export class ProductRepository {
     return this.prisma.product.update({
       where: { id },
       data,
+    });
+  }
+  async findDetail(id: number) {
+    return await this.prisma.product.findFirst({
+      where: { id },
+      select: {
+        id: true,
+        price: true,
+        rating: true,
+        sale: true,
+        isNew: true,
+        image: true,
+        productGroup: {
+          select: {
+            title: true,
+            product: {
+              select: {
+                image: true,
+                id: true,
+                color: true,
+                quantityWarehouse: true,
+              },
+            },
+          },
+        },
+        offerExpires: true,
+        reviews: true,
+        description: true,
+        category: true,
+        color: true,
+        measurements: true,
+      },
     });
   }
 }

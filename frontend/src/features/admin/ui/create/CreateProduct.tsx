@@ -22,8 +22,6 @@ import { Category } from "@/config/product.config";
 import Image from "next/image";
 import { FieldError } from "@/components/ui/inputs/FieldError";
 import { useRouter } from "next/navigation";
-import { PAGE } from "@/config";
-import type { ICreateProduct } from "@/services/requests/product/requests.type";
 
 export const optionCreate = {
 	label: "Create",

@@ -9,17 +9,11 @@ export class PaymentService {
     private orderService: OrderService,
   ) {}
   async createIntent(orderId: number) {
-    // const order = await this.orderService.find(orderId);
-    // if (!order || !order?.total || !order?.id) {
-    //   throw new NotFoundException('Order not fount');
-    // }
-    console.log("work1")
+    const order = await this.orderService.find(orderId);
+    if (!order || !order?.total || !order?.id) {
+      throw new NotFoundException('Order not fount');
+    }
     return this.stripeService.createPaymentIntent({
-      // amount: order.total,
-      // currency: 'usd',
-      // metadata: {
-      //   orderId: order.id,
-      // },
       amount: 200,
       currency: 'usd',
       metadata: {

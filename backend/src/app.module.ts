@@ -9,10 +9,12 @@ import { MailService } from './modules/mail/mail.service';
 import { PaymentModule } from './modules/payment/payment.module';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { join } from 'path';
+import { AddressModule } from './modules/address/address.module';
 
 @Module({
   imports: [
     ProductModule,
+    AddressModule,
     UserModule,
     AuthModule,
     OrderModule,

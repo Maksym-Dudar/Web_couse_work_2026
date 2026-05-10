@@ -4,7 +4,6 @@ import { Strategy } from 'passport-jwt';
 import { Request } from 'express';
 import { AccessTokenPayload } from '../types.js';
 
-
 @Injectable()
 export class JwtStrategy extends PassportStrategy(Strategy) {
   constructor() {

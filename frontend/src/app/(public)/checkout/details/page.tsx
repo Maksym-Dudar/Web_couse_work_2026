@@ -8,6 +8,7 @@ export default function page() {
 		const {
 			orderData,
 		} = useCheckout();
+	console.log("orderData: ", orderData);
 	if (!orderData || !orderData?.id) return;
 	return (
 		<div>

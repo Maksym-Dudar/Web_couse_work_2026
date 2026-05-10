@@ -14,7 +14,7 @@ const cartStore: StateCreator<ICartStore> = (set) => ({
 			const index = cart.findIndex((val) => val.productId === item.productId);
 			if (index !== -1) {
 				const existing = cart[index];
-				const newQty = Math.max(existing.quantity + 1, item.quantity);
+				const newQty = Math.max(existing.quantity + 1, item.quantity); //todo
 				cart[index] = { ...existing, quantity: newQty };
 			} else {
 				cart.push({ productId: item.productId, quantity: item.quantity });

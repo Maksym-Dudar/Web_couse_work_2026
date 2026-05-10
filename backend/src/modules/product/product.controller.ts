@@ -1,4 +1,13 @@
-import { BadRequestException, Body, Controller, Get, Post, Query, UploadedFiles, UseInterceptors } from '@nestjs/common';
+import {
+  BadRequestException,
+  Body,
+  Controller,
+  Get,
+  Post,
+  Query,
+  UploadedFiles,
+  UseInterceptors,
+} from '@nestjs/common';
 import { ProductService } from './product.service';
 import { FindManyShopDto } from './dto/find-many-shop.dto';
 import { FindManySearchDto } from './dto/find-many-search.dto';
@@ -6,7 +15,7 @@ import { FindManyBagDto } from './dto/find-many-bag.dto';
 import { FindManyWishlistDto } from './dto/find-many-wishlist.dto';
 import { FilesInterceptor } from '@nestjs/platform-express';
 import { CreateProductDto } from './dto/create-product.dto';
-
+import { FindDetailsDto } from './dto/find-details.dto';
 
 @Controller('products')
 export class ProductController {
@@ -18,8 +27,8 @@ export class ProductController {
     @UploadedFiles() images: Express.Multer.File[],
     @Body() body: CreateProductDto,
   ) {
-    console.log(images)
-    if (!images || !Array.isArray(images)) throw new BadRequestException("Images incorect");
+    if (!images || !Array.isArray(images))
+      throw new BadRequestException('Images incorect');
 
     return this.productService.create(body, images);
   }
@@ -48,5 +57,10 @@ export class ProductController {
   @Get('group')
   findManyGroup() {
     return this.productService.findManyGroup();
+  }
+
+  @Get('details')
+  findDetail(@Query() query: FindDetailsDto) {
+    return this.productService.findDetail(query.id);
   }
 }

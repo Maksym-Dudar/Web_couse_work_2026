@@ -13,7 +13,7 @@ export function MenuLink({ link, isActive, label }: Props) {
 			className={
 				isActive
 					? "hover:scale-105 text-black text-12 md:text-14 font-500 leading-170"
-					: "text-notactive text-12 md:text-14 font-500 leading-170"
+					: "text-not_active text-12 md:text-14 font-500 leading-170"
 			}
 		>
 			{label}

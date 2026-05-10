@@ -4,9 +4,8 @@ import { AuthService } from '../auth/auth.service';
 import { PatchUserDto } from './dto/update-user.dto';
 import * as fs from 'fs/promises';
 import * as path from 'path';
-import { User } from 'generated/prisma/client.js';
 import { DIRECTORY } from '@/configs/directory.config';
-
+import { User } from '@prisma/client';
 
 @Injectable()
 export class UserService {
@@ -43,7 +42,7 @@ export class UserService {
 
     if (payload.firstName) updateData.firstName = payload.firstName;
     if (payload.lastName) updateData.lastName = payload.lastName;
-          return await this.userRepo.update(user.email, updateData);
+    return await this.userRepo.update(user.email, updateData);
   }
 
   async updateAvatar(email: string, file: Express.Multer.File) {

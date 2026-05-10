@@ -9,9 +9,9 @@ import calcSubtotal from "../lib/calcSubtotal";
 import calcTotal from "../lib/calcTotal";
 import { useRouter } from "next/navigation";
 import { PAGE } from "@/config";
-import type { IDelivery } from "@/constants/delivery.constants";
 import { ordersService } from "@/services/requests";
 import type { ICreateOrder } from "@/services/requests/orders/requests.type";
+import type { IDeliveryOptions } from "@/shared/types/orders/orders";
 
 export function useCart() {
 	const router = useRouter();
@@ -22,25 +22,51 @@ export function useCart() {
 		() => cart.map((item) => item.productId).sort(),
 		[cart],
 	);
+	console.log(productIds);
+
 	const {
-		data,
-		isLoading,
-		isError,
-		error: getCartError,
+		data: cartCards,
+		isLoading: isLoadingCart,
+		isError: isErrorCart,
+		error: errorCart,
 	} = useQuery<ICartItem[], Error>({
 		queryKey: ["cart", productIds],
 		queryFn: ({ signal }) => productService.getCartCards(productIds, signal),
 		enabled: productIds.length > 0,
 	});
 
+	const {
+		data: deliveryMethods,
+		isLoading: isLoadingDelivery,
+		isError: isErrorDelivery,
+		error: errorDelivery,
+	} = useQuery({
+		queryKey: ["delivery-options"],
+		queryFn: () => ordersService.getDeliveryOptions(),
+	});
+
+	const [shippingMethod, setShippingMethod] = useState<IDeliveryOptions | null>(
+		null,
+	);
 	useEffect(() => {
-		if (isError && getCartError) setError(getCartError);
-	}, [isError, getCartError]);
-	const [shippingMethod, setShippingMethod] = useState<IDelivery>("Free");
+		if (deliveryMethods?.length && !shippingMethod) {
+			setShippingMethod(deliveryMethods[0]);
+		}
+	}, [deliveryMethods, shippingMethod]);
+	const subtotal = useMemo(
+		() => calcSubtotal(cart, cartCards ?? []),
+		[cart, cartCards],
+	);
 
-	const subtotal = useMemo(() => calcSubtotal(cart, data ?? []), [cart, data]);
+	const total = useMemo(() => {
+		if (!shippingMethod) return 0;
 
-	const total = useMemo(() => calcTotal(subtotal, 0), [subtotal]);
+		return calcTotal(
+			subtotal,
+			Number(shippingMethod.percent),
+			Number(shippingMethod.fixedFee),
+		);
+	}, [subtotal, shippingMethod]);
 
 	const checkoutMutation = useMutation({
 		mutationFn: (data: ICreateOrder) => ordersService.createOrder(data),
@@ -49,15 +75,23 @@ export function useCart() {
 	});
 
 	const onCheckout = () => {
-		checkoutMutation.mutate({ total, subtotal, shippingMethod, items: cart });
+		if (!shippingMethod) return;
+
+		checkoutMutation.mutate({
+			total,
+			subtotal,
+			shippingMethodId: shippingMethod.id,
+			items: cart,
+		});
 	};
 
 	return {
 		shippingMethod,
-		data,
-		isLoading,
-		isError: !!error,
-		error,
+		deliveryMethods,
+		data: cartCards,
+		isLoading: isLoadingCart || isLoadingDelivery,
+		isError: isErrorCart || isErrorDelivery,
+		error: errorDelivery || errorCart || error,
 		subtotal,
 		total,
 		onCheckout,

@@ -1,6 +1,6 @@
 import { PrismaService } from '@/database/prisma/prisma.service';
 import { Injectable } from '@nestjs/common';
-import { OrderStatus, Prisma, ShippingMethod } from 'generated/prisma/client';
+import { OrderStatus, Prisma } from '@prisma/client';
 
 @Injectable()
 export class OrderRepository {
@@ -11,12 +11,18 @@ export class OrderRepository {
     total: number,
     subtotal: number,
     userId: number,
-    shippingMethod: ShippingMethod,
+    shippingMethodId: number,
     item: { productId: number; quantity: number }[],
   ) {
     return this.prisma.$transaction(async (tx) => {
       const order = await tx.order.create({
-        data: { status, total, subtotal, userId, shippingMethod } as Prisma.OrderUncheckedCreateInput,
+        data: {
+          status,
+          total,
+          subtotal,
+          userId,
+          shippingMethodId,
+        } as Prisma.OrderUncheckedCreateInput,
       });
 
       const orderItem = item.map((val) => ({ ...val, orderId: order.id }));
@@ -73,7 +79,7 @@ export class OrderRepository {
           select: {
             product: {
               select: {
-                image: true
+                image: true,
               },
             },
             quantity: true,
@@ -85,5 +91,17 @@ export class OrderRepository {
 
   async findManyForUser(id: number) {
     return this.prisma.order.findMany({ where: { userId: id } });
+  }
+
+  async createShippingMethod(shippingMethod: Prisma.ShippingMethodCreateInput) {
+    return this.prisma.shippingMethod.create({ data: shippingMethod });
+  }
+
+  async findAllShippingMethods() {
+    return this.prisma.shippingMethod.findMany();
+  }
+
+  async findShippingMethod(id: number) {
+    return this.prisma.shippingMethod.findFirst({ where: { id } });
   }
 }

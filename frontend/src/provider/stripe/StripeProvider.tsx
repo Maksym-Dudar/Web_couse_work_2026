@@ -20,6 +20,7 @@ export default function PaymentProvider({
 	});
 
 	
+	console.log("pay data:", data);
 	if (!data || !data?.clientSecret) return
 	
 	return (

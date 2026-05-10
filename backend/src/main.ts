@@ -32,12 +32,12 @@ async function bootstrap() {
   //   }
   //   next();
   // });
-  
+
   app.use(cookieParser());
 
   app.use('/webhook/stripe', express.raw({ type: 'application/json' }));
 
-  await app.listen(process.env.PORT!);
+  await app.listen(process.env.PORT!, '0.0.0.0');
 
   const url = await app.getUrl();
   console.log(`Server running on ${url}`);

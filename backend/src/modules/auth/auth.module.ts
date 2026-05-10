@@ -8,20 +8,20 @@ import { UserModule } from '../user/user.module';
 import { MailModule } from '../mail/mail.module';
 import { JwtStrategy } from './strategies/jwt.strategy';
 
-    @Module({
-      imports: [
-        PassportModule,
-        MailModule,
-        forwardRef(() => UserModule),
-        JwtModule.registerAsync({
-          useFactory: () => ({
-            secret: process.env.JWT_SECRET,
-            signOptions: { expiresIn: 604800 },
-          }),
-        }),
-      ],
-      controllers: [AuthController],
-      providers: [PrismaService, AuthService, JwtStrategy],
-      exports: [AuthService],
-    })
-    export class AuthModule {};
+@Module({
+  imports: [
+    PassportModule,
+    MailModule,
+    forwardRef(() => UserModule),
+    JwtModule.registerAsync({
+      useFactory: () => ({
+        secret: process.env.JWT_SECRET,
+        signOptions: { expiresIn: 604800 },
+      }),
+    }),
+  ],
+  controllers: [AuthController],
+  providers: [PrismaService, AuthService, JwtStrategy],
+  exports: [AuthService],
+})
+export class AuthModule {}

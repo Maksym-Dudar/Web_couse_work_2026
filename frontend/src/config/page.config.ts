@@ -62,7 +62,7 @@ class PagesConfig {
 		label: "Terms of use",
 	};
 	CART: IPage = {
-		link: "/cart",
+		link: "/checkout/cart",
 		label: "Cart",
 	};
 	CHECKOUT_DETAILS(id: number) {
@@ -112,9 +112,9 @@ class PagesConfig {
 		link: `${this.ADMIN_DASHBOARD.link}/create-product`,
 		label: "Product",
 	};
-	ADMIN_ORDERS: IPage = {
-		link: `${this.ADMIN_DASHBOARD.link}/orders`,
-		label: "Orders",
+	ADMIN_SHIPPING_METHOD: IPage = {
+		link: `${this.ADMIN_DASHBOARD.link}/create-shipping-method`,
+		label: "Shipping method",
 	};
 }
 

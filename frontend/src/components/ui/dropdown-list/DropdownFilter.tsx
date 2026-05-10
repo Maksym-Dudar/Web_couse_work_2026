@@ -26,11 +26,11 @@
 // 			className='relative flex flex-col w-full md:w-52 lg:w-60 justify-center gap-2'
 // 			onMouseLeave={() => close()}
 // 		>
-// 			<p className='text-14 sm:text-16 font-400 leading-160 font-inter text-descriptiongrey'>
+// 			<p className='text-14 sm:text-16 font-400 leading-160 font-inter text-description_grey'>
 // 				{label}
 // 			</p>
 // 			<button
-// 				className='flex justify-between w-full border-2 rounded-md border-descriptiongrey px-4 py-2'
+// 				className='flex justify-between w-full border-2 rounded-md border-description_grey px-4 py-2'
 // 				onClick={() => onToggle()}
 // 			>
 // 				<h6 className='text-14 sm:text-16'>{value}</h6>
@@ -43,7 +43,7 @@
 // 				/>
 // 			</button>
 // 			{isOpen && (
-// 				<ul className='absolute flex flex-col w-full bg-white border-2 rounded-b-md border-x-descriptiongrey border-b-descriptiongrey z-50 top-18'>
+// 				<ul className='absolute flex flex-col w-full bg-white border-2 rounded-b-md border-x-description_grey border-b-description_grey z-50 top-18'>
 // 					{options.map((item) => (
 // 						<li
 // 							key={item}
@@ -54,7 +54,7 @@
 // 							}}
 // 						>
 // 							{item === value ? (
-// 								<p className='text-descriptiongrey pointer-events-none'>
+// 								<p className='text-description_grey pointer-events-none'>
 // 									{item}
 // 								</p>
 // 							) : (

@@ -10,7 +10,6 @@ import {
 import { Type } from 'class-transformer';
 import { Category } from '@prisma/client';
 
-
 export class CreateProductDto {
   @IsString()
   title!: string;

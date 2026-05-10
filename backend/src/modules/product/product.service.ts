@@ -1,4 +1,8 @@
-import { BadRequestException, Injectable } from '@nestjs/common';
+import {
+  BadRequestException,
+  Injectable,
+  NotFoundException,
+} from '@nestjs/common';
 import { ProductRepository } from './product.repository';
 import { CreateProductDto } from './dto/create-product.dto';
 import * as fs from 'fs/promises';
@@ -6,7 +10,7 @@ import * as path from 'path';
 import { Sorts } from '@/common/enums/sorts.enum';
 import { mapSortToPrisma } from '@/common/utils/map-sort-to-prisma';
 import { DIRECTORY } from '@/configs/directory.config';
-import { Category, Prisma } from 'generated/prisma/client';
+import { Category, Prisma } from '@prisma/client';
 
 const RAW_IMAGE_BASE_URL =
   process.env.IMAGE_BASE_URL ?? 'https://localhost:4200';
@@ -60,12 +64,11 @@ export class ProductService {
       orderBy,
     });
 
-    console.log(products);
-
     return products.map((p) => ({
       ...p,
       title: p.productGroup.title,
       image: buildImageUrl(p.image[0]),
+      priceWithSale: Number(p.price) - Number(p.price) * Number(p.sale),
     }));
   }
 
@@ -80,6 +83,7 @@ export class ProductService {
   }
 
   async findManyCart(ids: number[]) {
+    console.log(ids);
     const data = await this.productRepo.findManyCartCards(ids);
     return data.map((val) => ({
       ...val,
@@ -125,8 +129,8 @@ export class ProductService {
 
     const product = await this.productRepo.createProduct(productInput);
 
-    let imagePath: string[] = [];
-    
+    const imagePath: string[] = [];
+
     for (const file of files) {
       const uploadDir = path.join(
         process.cwd(),
@@ -150,5 +154,29 @@ export class ProductService {
 
   async findManyGroup() {
     return await this.productRepo.findManyGroup();
+  }
+
+  async findDetail(id: number) {
+    const details = await this.productRepo.findDetail(id);
+
+    if (!details) throw new NotFoundException('Product not found');
+
+    const { productGroup, image, ...res } = details;
+    const { title, product } = productGroup;
+
+    const imageUrl = image.map((val) => buildImageUrl(val));
+    const sameProduct = product.map((val) => ({
+      color: val.color,
+      id: val.id,
+      image: buildImageUrl(val.image[0]),
+      isActive: val.quantityWarehouse > 0,
+    }));
+    return {
+      ...res,
+      title,
+      sameProduct,
+      image: imageUrl,
+      priceWithSale: Number(res.price) - Number(res.price) * Number(res.sale),
+    };
   }
 }

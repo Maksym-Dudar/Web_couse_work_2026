@@ -8,12 +8,11 @@ export class PaymentController {
 
   @Post('create-payment-intent')
   async createIntent(@Body() body: CreateIntent) {
-    console.log(body, "tut");
-    console.log("work2")
+    console.log(body, 'tut');
+    console.log('work2');
     const paymentIntent = await this.paymentService.createIntent(body.orderId);
-        console.log(paymentIntent);
+    console.log(paymentIntent);
 
     return { clientSecret: paymentIntent.client_secret };
   }
 }
-

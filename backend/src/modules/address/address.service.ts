@@ -19,7 +19,7 @@ export class AddressService {
       user: { connect: { id: userId } },
     });
   }
-  async getAddress(id: number) {
-    return this.addressRepo.find(id);
+  async getAllUserAddress(id: number) {
+    return this.addressRepo.findAllUserAddress(id);
   }
 }

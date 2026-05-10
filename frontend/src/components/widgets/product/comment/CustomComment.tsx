@@ -7,7 +7,6 @@
 // import { mobileSize } from "@/constants/windowSize";
 // import { IMAGE } from "@/config/image.config";
 // import useComment from "@/hooks/comment/useComment";
-// import { creaeteComment } from "@/services/requests/product";
 // import { useParams } from "next/navigation";
 
 // export function CustomComment() {

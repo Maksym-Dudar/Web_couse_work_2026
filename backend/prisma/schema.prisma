@@ -7,16 +7,16 @@ datasource db {
 }
 
 model User {
-  id        Int                 @id @default(autoincrement())
-  email     String              @unique
+  id        Int       @id @default(autoincrement())
+  email     String    @unique
   password  String
   otp       String?
-  expireOtp DateTime?           @map("expire_otp")
-  firstName String              @map("first_name")
-  lastName  String?             @map("last_name")
+  expireOtp DateTime? @map("expire_otp")
+  firstName String    @map("first_name")
+  lastName  String?   @map("last_name")
   avatar    String?
-  createdAt DateTime            @default(now()) @map("created_at")
-  updatedAt DateTime            @updatedAt @map("updated_at")
+  createdAt DateTime  @default(now()) @map("created_at")
+  updatedAt DateTime  @updatedAt @map("updated_at")
   Address   Address[]
   comments  Comment[]
   orders    Order[]
@@ -28,8 +28,8 @@ model Product {
   isNew             Boolean      @map("is_new")
   offerExpires      DateTime?    @map("offer_expires")
   measurements      String
-  sale              Float
-  price             Float
+  price             Decimal      @db.Decimal(10, 2)
+  sale              Decimal      @db.Decimal(5, 2)
   rating            Int
   reviews           Int
   quantityWarehouse Int          @map("quantity_warehouse")
@@ -51,60 +51,70 @@ model ProductGroup {
 }
 
 model Address {
-  id             Int            @id @default(autoincrement())
-  userId         Int            @map("user_id")
-  firstName      String         @map("first_name")
-  lastName       String         @map("last_name")
-  phoneNumber    String         @map("phone_number")
-  email          String         @map("email")
-  country        String         @map("country")
-  state          String         @map("state")
-  city           String         @map("city")
-  street         String         @map("street")
-  buildingNumber String         @map("building_number")
-  zipCode        String         @map("zip_code")
-  user           User           @relation(fields: [userId], references: [id])
+  id             Int     @id @default(autoincrement())
+  userId         Int     @map("user_id")
+  firstName      String  @map("first_name")
+  lastName       String  @map("last_name")
+  phoneNumber    String  @map("phone_number")
+  email          String  @map("email")
+  country        String  @map("country")
+  state          String  @map("state")
+  city           String  @map("city")
+  street         String  @map("street")
+  buildingNumber String  @map("building_number")
+  zipCode        String  @map("zip_code")
+  user           User    @relation(fields: [userId], references: [id])
   orders         Order[]
 }
 
 model Order {
-  id              Int             @id @default(autoincrement())
-  userId          Int             @map("user_id")
-  addressId       Int?            @map("address_id")
-  createdAt       DateTime        @default(now()) @map("created_at")
-  status          OrderStatus     @map("status")
-  subtotal        Int             @map("subtotal")
-  total           Int             @map("total")
-  shippingMethod  ShippingMethod  @map("shipping_method")
-  firstName       String?          @map("first_name")
-  lastName        String?          @map("last_name")
-  email           String?          @map("email")
+  id        Int         @id @default(autoincrement())
+  userId    Int         @map("user_id")
+  addressId Int?        @map("address_id")
+  createdAt DateTime    @default(now()) @map("created_at")
+  status    OrderStatus @map("status")
+  subtotal  Decimal     @db.Decimal(10, 2)
+  total     Decimal     @db.Decimal(10, 2)
+  firstName String?     @map("first_name")
+  lastName  String?     @map("last_name")
+  email     String?     @map("email")
 
+  shippingMethodId Int
+  orderItem        OrderItem[]
 
-  orderItem OrderItem[]
-  
-  address   Address?              @relation(fields: [addressId], references: [id])
-  user      User                  @relation(fields: [userId], references: [id])
+  shippingMethod ShippingMethod @relation(fields: [shippingMethodId], references: [id])
+  address        Address?       @relation(fields: [addressId], references: [id])
+  user           User           @relation(fields: [userId], references: [id])
 }
 
 model OrderItem {
-  id        Int            @id @default(autoincrement())
-  orderId   Int            @map("order_id")
-  productId Int            @map("product_id")
-  quantity  Int            @map("quantity")
-  order     Order          @relation(fields: [orderId], references: [id])
-  product   Product        @relation(fields: [productId], references: [id])
+  id        Int     @id @default(autoincrement())
+  orderId   Int     @map("order_id")
+  productId Int     @map("product_id")
+  quantity  Int     @map("quantity")
+  order     Order   @relation(fields: [orderId], references: [id])
+  product   Product @relation(fields: [productId], references: [id])
 }
 
 model Comment {
-  id        Int            @id @default(autoincrement())
-  userId    Int            @map("user_id")
-  productId Int            @map("product_id")
+  id        Int      @id @default(autoincrement())
+  userId    Int      @map("user_id")
+  productId Int      @map("product_id")
   rating    Int
   text      String
-  createdAt DateTime       @default(now()) @map("created_at")
-  product   Product        @relation(fields: [productId], references: [id])
-  user      User           @relation(fields: [userId], references: [id])
+  createdAt DateTime @default(now()) @map("created_at")
+  product   Product  @relation(fields: [productId], references: [id])
+  user      User     @relation(fields: [userId], references: [id])
+}
+
+model ShippingMethod {
+  id       Int     @id @default(autoincrement())
+  label    String
+  method   String  @unique @map("method")
+  percent  Decimal @db.Decimal(5, 2)
+  fixedFee Decimal @map("fixed_fee") @db.Decimal(10, 2)
+
+  orders Order[]
 }
 
 enum Category {
@@ -125,10 +135,4 @@ enum OrderStatus {
   CANCELLED  @map("cancelled")
   RETURNED   @map("returned")
   FAILED     @map("failed")
-}
-
-enum ShippingMethod {
-  FREE       @map("free")
-  EXPRESS    @map("express")
-  PICK_UP    @map("pick-up")
 }

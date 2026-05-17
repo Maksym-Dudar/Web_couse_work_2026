@@ -25,7 +25,7 @@ export function HeroCard({ id, title, image, isNew, sale }: Props) {
 					<div className='flex flex-col gap-2'>
 						{isNew && (
 							<div className='font-inter px-1 sm:px-2 md:px-3 py-1 bg-white rounded text-center text-12 sm:text-14 md:text-16 font-700 leading-100'>
-								NEW
+								НОВИНКА
 							</div>
 						)}
 						{sale != 0 && (

@@ -48,9 +48,11 @@ export function CheckoutPage() {
 	} = useForm<CheckoutSchema>({
 		resolver: zodResolver(CheckoutSchema),
 	});
-	const { errorMessage, closeError, setErrorMessage } = useErrorToast(
-		error,
-		isError,
+	const [paymentError, setPaymentError] = useState<Error | null>(null);
+
+	const { errorMessage, closeError } = useErrorToast(
+		paymentError || error,
+		isError || !!paymentError,
 	);
 	const [addressMode, setAddressMode] = useState<TAddressMode>("new");
 	const [addressId, setAddressId] = useState<number | null>(null);
@@ -87,7 +89,7 @@ export function CheckoutPage() {
 
 		if (!finalAddressId) {
 			const payload = {
-				name: "Not register",
+				name: "Незареєстрований користувач",
 				street: data.street,
 				country: data.country,
 				state: data.state,
@@ -116,7 +118,8 @@ export function CheckoutPage() {
 			},
 		});
 		if (result.error) {
-			setErrorMessage(result.error.message || "Payment error");
+			setPaymentError(new Error(result.error.message));
+			return;
 		} else {
 			await orderMutation.mutateAsync({
 				id: orderData.id,
@@ -143,30 +146,30 @@ export function CheckoutPage() {
 			)}
 			<div className='flex flex-col lg:flex-row gap-6 md:gap-8 lg:gap-12 xl:gap-16 py-10 md:py-15 lg:py-20 '>
 				<form className='flex flex-col w-full gap-6' onSubmit={submit}>
-						<AddressMode
-							options={addressOptions}
-							handleAddressSelect={handleAddressSelect}
-							addressMode={addressMode}
-							onCreateAddress={() => {
-								setAddressMode("new");
-								setAddressId(null);
-							}}
-							onExistingAddress={() => setAddressMode("existing")}
-						/>
-						<ContactInformation
-							register={register}
-							errors={errors}
-							disabled={addressMode == "existing"}
-						/>
-						<ShippingAddress
-							register={register}
-							errors={errors}
-							control={control}
-							options={countryOptions}
-							disabled={addressMode == "existing"}
-						/>
-						<PaymentMethod />
-					<Button text='Place Order' type='submit' className='py-3' />
+					<AddressMode
+						options={addressOptions}
+						handleAddressSelect={handleAddressSelect}
+						addressMode={addressMode}
+						onCreateAddress={() => {
+							setAddressMode("new");
+							setAddressId(null);
+						}}
+						onExistingAddress={() => setAddressMode("existing")}
+					/>
+					<ContactInformation
+						register={register}
+						errors={errors}
+						disabled={addressMode == "existing"}
+					/>
+					<ShippingAddress
+						register={register}
+						errors={errors}
+						control={control}
+						options={countryOptions}
+						disabled={addressMode == "existing"}
+					/>
+					<PaymentMethod />
+					<Button text='Оформити замовлення' type='submit' className='py-3' />
 				</form>
 				<OderSummary
 					data={orderData?.orderItem || []}

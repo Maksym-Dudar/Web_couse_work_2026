@@ -12,58 +12,58 @@ interface ISocial {
 class PagesConfig {
 	HOME: IPage = {
 		link: "/",
-		label: "Home",
+		label: "Головна",
 	};
 	SHOP: IPage = {
 		link: "/shop",
-		label: "Shop",
+		label: "Магазин",
 	};
 	BLOG: IPage = {
 		link: "/blog",
-		label: "Blog",
+		label: "Блог",
 	};
 	CONTACT_US: IPage = {
 		link: "/contact-us",
-		label: "Contact us",
+		label: "Контакти",
 	};
 	ACCOUNT: IPage = {
 		link: "/account",
-		label: "Account",
+		label: "Акаунт",
 	};
 	ADDRESS: IPage = {
 		link: `${this.ACCOUNT.link}/address`,
-		label: "Address",
+		label: "Адреси",
 	};
 	ADDRESS_CREATE: IPage = {
 		link: `${this.ADDRESS.link}/create`,
-		label: "Create",
+		label: "Створити",
 	};
 	AddressEdit(id: number): IPage {
 		return {
 			link: `${this.ADDRESS.link}/edit/${id}`,
-			label: "Edit",
+			label: "Редагувати",
 		};
 	}
 	ORDERS: IPage = {
 		link: `${this.ACCOUNT.link}/orders`,
-		label: "Orders",
+		label: "Замовлення",
 	};
 	WISHLIST: IPage = {
 		link: `${this.ACCOUNT.link}/wishlist`,
-		label: "Wishlist",
+		label: "Список бажань",
 	};
 
 	PRIVACY_POLICY: IPage = {
 		link: "/privacy-policy",
-		label: "Privacy policy",
+		label: "Політика конфіденційності",
 	};
 	TERMS_OF_USE: IPage = {
 		link: "/terms-of-use",
-		label: "Terms of use",
+		label: "Умови використання",
 	};
 	CART: IPage = {
 		link: "/checkout/cart",
-		label: "Cart",
+		label: "Кошик",
 	};
 	CHECKOUT_DETAILS(id: number) {
 		return `/checkout/details?orderId=${id}`;
@@ -74,15 +74,15 @@ class PagesConfig {
 	}
 	FORGOT_PASSWORD: IPage = {
 		link: "/forgot-password",
-		label: "Forgot password",
+		label: "Забули пароль",
 	};
 	SIGN_IN: IPage = {
 		link: "/sign-in",
-		label: "Sign In",
+		label: "Увійти",
 	};
 	SIGN_UP: IPage = {
 		link: "/sign-up",
-		label: "Sing Up",
+		label: "Зареєструватися",
 	};
 	FACEBOOK: ISocial = {
 		link: "/facebook",
@@ -102,19 +102,17 @@ class PagesConfig {
 	PRODUCT(item: number) {
 		return `${this.SHOP.link}/${item}`;
 	}
-
-	// Admin
 	ADMIN_DASHBOARD: IPage = {
 		link: "/admin",
-		label: "Dashboard",
+		label: "Панель",
 	};
 	CREATE_PRODUCT: IPage = {
 		link: `${this.ADMIN_DASHBOARD.link}/create-product`,
-		label: "Product",
+		label: "Товар",
 	};
 	ADMIN_SHIPPING_METHOD: IPage = {
 		link: `${this.ADMIN_DASHBOARD.link}/create-shipping-method`,
-		label: "Shipping method",
+		label: "Спосіб доставки",
 	};
 }
 

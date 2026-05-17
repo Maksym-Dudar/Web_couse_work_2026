@@ -33,11 +33,11 @@ export default function Address({ id }: Props) {
 
 	return (
 		<form className='flex flex-col gap-5 w-full pb-20' onSubmit={submit}>
-			<h4 className='text-20 font-500 leading-140'>Shipping Address</h4>
+			<h4 className='text-20 font-500 leading-140'>Адреса доставки</h4>
 			<Input
 				variant='outlined'
-				label='ADDRESS NAME'
-				placeholder='Address name'
+				label='НАЗВА АДРЕСИ'
+				placeholder='Назва адреси'
 				errorMessage={errors.name?.message}
 				{...register("name")}
 			/>
@@ -46,8 +46,8 @@ export default function Address({ id }: Props) {
 				name='country'
 				render={({ field }) => (
 					<CustomSelect
-						label='COUNTRY'
-						placeholder='Country'
+						label='КРАЇНА'
+						placeholder='Країна'
 						className='w-full '
 						options={options}
 						styleType='outlined'
@@ -58,49 +58,49 @@ export default function Address({ id }: Props) {
 			/>
 			<Input
 				variant='outlined'
-				label='STATE'
-				placeholder='State'
+				label='ОБЛАСТЬ'
+				placeholder='Область'
 				errorMessage={errors.state?.message}
 				{...register("state")}
 			/>
 			<Input
 				variant='outlined'
-				label='TOWN / CITY'
-				placeholder='Town / City'
+				label='МІСТО'
+				placeholder='Місто'
 				errorMessage={errors.city?.message}
 				{...register("city")}
 			/>
 			<Input
 				variant='outlined'
-				label='STREET'
-				placeholder='Street'
+				label='ВУЛИЦЯ'
+				placeholder='Вулиця'
 				errorMessage={errors.street?.message}
 				{...register("street")}
 			/>
 			<div className='flex flex-row gap-6 justify-between'>
 				<Input
 					variant='outlined'
-					label='BUILDING NUMBER'
-					placeholder='Building number'
+					label='НОМЕР БУДИНКУ'
+					placeholder='Номер будинку'
 					errorMessage={errors.buildingNumber?.message}
 					{...register("buildingNumber")}
 				/>
 				<Input
 					variant='outlined'
-					label='ZIP CODE'
-					placeholder='Zip Code'
+					label='ПОШТОВИЙ ІНДЕКС'
+					placeholder='Поштовий індекс'
 					errorMessage={errors.zipCode?.message}
 					{...register("zipCode")}
 				/>
 			</div>
 			<Input
 				variant='outlined'
-				label='PHONE NUMBER'
-				placeholder='Phone number'
+				label='НОМЕР ТЕЛЕФОНУ'
+				placeholder='Номер телефону'
 				errorMessage={errors.phone?.message}
 				{...register("phone")}
 			/>
-			<Button text={id ? "Update" : "Create"} className='w-fit px-20 py-2' />
+			<Button text={id ? "Оновити" : "Створити"} className='w-fit px-20 py-2' />
 		</form>
 	);
 }

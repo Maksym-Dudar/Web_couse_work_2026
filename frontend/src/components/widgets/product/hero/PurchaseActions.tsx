@@ -47,11 +47,11 @@ export function PurchaseActions({ id }: Props) {
 						/>
 					)}
 					<p className='font-inter text-14 md:text-16 font-500 leading-180'>
-						Wishlist
+						Список бажань
 					</p>
 				</button>
 			</div>
-			<Button text='Add to Cart' className="py-3" onClick={() => addProduct(itemToAddBag)}/>
+			<Button text='Додати в кошик' className="py-3" onClick={() => addProduct(itemToAddBag)}/>
 		</section>
 	);
 }

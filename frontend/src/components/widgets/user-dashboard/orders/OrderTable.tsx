@@ -36,15 +36,15 @@ export function OrderTable() {
 			)}
 			<section className='w-full sm:px-4 xl:px-16'>
 				<h4 className='text-16 sm:text-18 md:text-20 font-600 leading-160 pb-6'>
-					Orders
+					Замовлення
 				</h4>
 				<table className='w-full gap-2 h-fit'>
 					<thead>
 						<tr>
-							<ColumnTitle children='Number ID' />
-							<ColumnTitle children='Dates' />
-							<ColumnTitle children='Status' />
-							<ColumnTitle children='Price' />
+							<ColumnTitle>Номер ID</ColumnTitle>
+							<ColumnTitle>Дата</ColumnTitle>
+							<ColumnTitle>Статус</ColumnTitle>
+							<ColumnTitle>Ціна</ColumnTitle>
 						</tr>
 					</thead>
 					<tbody className=''>

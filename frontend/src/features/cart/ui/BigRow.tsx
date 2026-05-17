@@ -26,17 +26,16 @@ export function BigRow({ id, image, price, title, color }: Props) {
 						width={80}
 						height={95}
 						className='object-cover '
-						// sizes='100vw'
 					/>
 					<span className='flex flex-col gap-2'>
 						<h5 className='font-inter text-14 font-600 leading-160'>{title}</h5>
 						<p className='font-inter text-12 font-400 leading-170'>
-							Color: {color}
+							Колір: {color}
 						</p>
 						<ButtonCross
 							size={5}
 							onClick={() => removeProduct(id)}
-							text='Remove'
+							text='Видалити'
 						/>
 					</span>
 				</div>

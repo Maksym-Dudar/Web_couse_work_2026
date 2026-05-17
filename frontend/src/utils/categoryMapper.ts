@@ -47,6 +47,6 @@ export function mapCategoryFromBackend(
 			return Category.Office;
 
 		default:
-			throw new Error("Unknown category: " + category);
+			throw new Error("Невідома категорія: " + category);
 	}
 }

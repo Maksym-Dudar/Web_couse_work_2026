@@ -6,18 +6,18 @@ import { CheckoutStep } from "./CheckoutStep";
 
 const CHECKOUT_STEPS = [
 	{
-		title: "Cart",
-		stepName: "Shopping cart",
+		title: "Кошик",
+		stepName: "Кошик",
 		path: "/checkout/cart",
 	},
 	{
-		title: "Checkout",
-		stepName: "Checkout details",
+		title: "Оформлення",
+		stepName: "Деталі замовлення",
 		path: "/checkout/details",
 	},
 	{
-		title: "Complete",
-		stepName: "Order complete",
+		title: "Готово",
+		stepName: "Замовлення завершено",
 		path: "/checkout/complete",
 	},
 ] as const;

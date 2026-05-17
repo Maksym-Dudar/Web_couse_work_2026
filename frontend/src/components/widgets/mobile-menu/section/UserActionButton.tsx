@@ -7,7 +7,7 @@ export function UserActionButton() {
 	const router = useRouter();
 	const { isAuthorized, isLoading } = useAuth();
 
-	const text = isLoading ? "Loading" : isAuthorized ? "Account" : "Sign In";
+	const text = isLoading ? "Завантаження" : isAuthorized ? "Акаунт" : "Увійти";
 	const handleClick = () => router.push(isAuthorized ? PAGE.ACCOUNT.link : PAGE.SIGN_IN.link);
 	return (
 		<Button

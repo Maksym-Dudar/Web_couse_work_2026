@@ -37,7 +37,7 @@ export function SignUp() {
 				<section className='flex flex-col gap-6'>
 					<h2 className='text-40 font-500 leading-110'>{PAGE.SIGN_UP.label}</h2>
 					<p className='text-16 font-400 leading-160 font-inter text-description_grey'>
-						Already have an account?{" "}
+						Вже маєте акаунт?{" "}
 						<Link href={PAGE.SIGN_IN.link} className='text-green'>
 							{PAGE.SIGN_IN.label}
 						</Link>
@@ -45,24 +45,24 @@ export function SignUp() {
 				</section>
 				<section className='flex flex-col gap-4'>
 					<Input
-						placeholder='Enter your first name'
+						placeholder="Введіть ім'я"
 						variant='borderless'
 						errorMessage={errors.firstName?.message}
 						{...register("firstName")}
 					/>
 					<Input
-						placeholder='Enter your email'
+						placeholder='Введіть email'
 						variant='borderless'
 						errorMessage={errors.email?.message}
 						{...register("email")}
 					/>
 					<PasswordInput
-						placeholder='Enter your password'
+						placeholder='Введіть пароль'
 						errorMessage={errors.password?.message}
 						{...register("password")}
 					/>
 					<PasswordInput
-						placeholder='Confirm your password'
+						placeholder='Підтвердьте пароль'
 						errorMessage={errors.confirmPassword?.message}
 						{...register("confirmPassword")}
 					/>
@@ -71,7 +71,7 @@ export function SignUp() {
 						{...register("isAgree")}
 					>
 						<p className='text-16 font-400 leading-160 font-inter '>
-							I agree with <b>Privacy Policy</b> and <b>Terms of Use</b>
+							Я погоджуюся з <b>Політикою конфіденційності</b> та <b>Умовами використання</b>
 						</p>
 					</CheckBox>
 				</section>

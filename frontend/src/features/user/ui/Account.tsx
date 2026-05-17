@@ -32,10 +32,10 @@ export function Account() {
 	const submit = () =>
 		handleSubmit((data) => {
 			if (data.confirmNewPassword != data.newPassword) {
-				setError("Password don't same");
+				setError("Паролі не збігаються");
 			}
 			if (data.confirmNewPassword == data.newPassword && !data.oldPassword) {
-				setError("Please enter old password");
+				setError("Введіть старий пароль");
 			}
 			const { email, confirmNewPassword, ...restData } = data;
 			forgotPasswordMutation.mutate(restData);
@@ -52,7 +52,7 @@ export function Account() {
 					<AccountPassword register={register} errors={errors} />
 					<Button
 						type='submit'
-						text='Save changes'
+						text='Зберегти зміни'
 						className='px-10 py-3 w-fit'
 					/>
 				</div>

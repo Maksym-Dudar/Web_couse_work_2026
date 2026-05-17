@@ -11,21 +11,21 @@ export function AccountDetails({ register, errors }: Props) {
 	return (
 		<article className='flex flex-col w-full gap-6'>
 			<h4 className='text-16 sm:text-18 md:text-20 font-600 leading-160'>
-				Account Details
+				Дані акаунта
 			</h4>
 			<div className='flex flex-col w-full gap-1'>
 				<Input
-					label='FIRST NAME *'
+					label="ІМ'Я *"
 					variant='outlined'
 					errorMessage={errors.firstName?.message}
-					placeholder='First name'
+					placeholder="Ім'я"
 					{...register("firstName")}
 				/>
 				<Input
-					label='lAST NAME *'
+					label='ПРІЗВИЩЕ *'
 					variant='outlined'
 					errorMessage={errors.lastName?.message}
-					placeholder='Last name'
+					placeholder='Прізвище'
 					{...register("lastName")}
 				/>
 				<Input

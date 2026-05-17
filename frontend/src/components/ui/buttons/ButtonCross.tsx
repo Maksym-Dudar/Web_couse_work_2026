@@ -1,6 +1,3 @@
-import type { PropsWithChildren } from "react";
-import { text } from "stream/consumers";
-
 interface Props {
 	onClick: () => void;
 	size: number;
@@ -12,7 +9,7 @@ export default function ButtonCross({ onClick, size, text }: Props) {
 		<button
 			onClick={onClick}
 			type='button'
-			aria-label='Close'
+			aria-label='Закрити'
 			className='flex items-center justify-center cursor-pointer gap-1 w-fit h-fit'
 		>
 			<div className='relative w-6 h-6 flex items-center justify-center cursor-pointer'>

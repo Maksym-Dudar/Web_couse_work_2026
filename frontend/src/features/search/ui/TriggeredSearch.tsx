@@ -48,7 +48,7 @@ export function TriggeredSearch() {
 						ref={inputRef}
 						id='search'
 						type='text'
-						placeholder='Search'
+					placeholder='Пошук'
 						className='w-full bg-transparent outline-none text-14 font-400 leading-160 font-inter'
 						value={search}
 						onChange={handleInputChange}

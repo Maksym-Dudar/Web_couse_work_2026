@@ -29,7 +29,7 @@ export function ShopFilter() {
 		<div className='flex flex-col md:flex-row md:justify-between gap-6 md:gap-0 pt-10 md:pt-15 w-full'>
 			<div className='flex gap-4 lg:gap-6 flex-col md:flex-row w-full'>
 				<CustomSelect
-					label='CATEGORIES'
+					label='КАТЕГОРІЇ'
 					labelVersion='thin'
 					options={categoryOptions}
 					value={categoryValue}
@@ -40,11 +40,11 @@ export function ShopFilter() {
 							category: val?.value ?? CategoryFilter.All,
 						}))
 					}
-					placeholder='Category'
+					placeholder='Категорія'
 					styleType='outlined'
 				/>
 				<CustomSelect
-					label='PRICE'
+					label='ЦІНА'
 					labelVersion='thin'
 					options={priceOptions}
 					value={priceValue}
@@ -55,12 +55,12 @@ export function ShopFilter() {
 							price: val?.value ?? PriceRanges[Prices.All],
 						}))
 					}
-					placeholder='Price'
+					placeholder='Ціна'
 					styleType='outlined'
 				/>
 			</div>
 			<CustomSelect
-				label='Sort by'
+				label='Сортувати за'
 				labelVersion='thin'
 				options={sortOptions}
 				value={sortValue}
@@ -71,7 +71,7 @@ export function ShopFilter() {
 						sort: val?.value ?? Sorts.Newest,
 					}))
 				}
-				placeholder='Price'
+				placeholder='Ціна'
 				styleType='borderless'
 			/>
 		</div>

@@ -30,7 +30,7 @@ function CartItem({
 						{title}
 					</h6>
 					<p className='font-inter font-400 text-12 md:text-14 leading-170 text-description_grey'>
-						Color: {color}
+						Колір: {color}
 					</p>
 					<Counter
 						quantity={quantity}

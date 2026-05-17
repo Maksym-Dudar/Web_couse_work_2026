@@ -1,17 +1,18 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 export function useErrorToast(error: Error | null, isError?: boolean) {
-	const [errorMessage, setErrorMessage] = useState<string | null>(null);
+	const [closed, setClosed] = useState(false);
 
-	useEffect(() => {
-		if (isError || error) {
-			setErrorMessage(error instanceof Error ? error.message : "Unknown error");
-		}
-	}, [isError, error]);
+	const errorMessage =
+		!closed && (isError || error)
+			? error instanceof Error
+				? error.message
+				: "Unknown error"
+			: null;
 
-	const closeError = () => setErrorMessage(null);
+	const closeError = () => setClosed(true);
 
-	return { errorMessage, closeError, setErrorMessage };
+	return { errorMessage, closeError };
 }

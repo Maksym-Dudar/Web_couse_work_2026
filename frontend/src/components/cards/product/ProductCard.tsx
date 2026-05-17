@@ -52,7 +52,7 @@ export function ProductCard({
 				<div className='absolute bottom-2 md:bottom-4w-full px-2 md:px-4 w-full'>
 					<Button
 						ref={buttonRef}
-						text={"Add to cart"}
+						text={"Додати в кошик"}
 						className='w-full py-1 md:py-2'
 						onClick={() => addProduct({ productId: id, quantity: 1 })}
 					/>

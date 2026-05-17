@@ -21,7 +21,7 @@ instance.interceptors.response.use(
 		console.log(error);
 		if (axios.isAxiosError(error)) {
 			const serverMessage = (error.response?.data as MassageResponse)?.message;
-			return Promise.reject(new Error(serverMessage || "Server error"));
+	return Promise.reject(new Error(serverMessage || "Помилка сервера"));
 		}
 		return Promise.reject(error);
 	}

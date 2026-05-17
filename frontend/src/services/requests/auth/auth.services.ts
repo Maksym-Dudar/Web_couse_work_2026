@@ -28,13 +28,6 @@ class AuthService {
 	async logOut(): Promise<MassageResponse> {
 		return (await instance.delete(API.AUTH_LOG_OUT)).data;
 	}
-	// async verifyJWTToken(token: string) {
-	// 	return (
-	// 		await instance.get(API.AUTH_VERIFY_JWT, {
-	// 			headers: { cookie: `accessToken=${token}` },
-	// 		})
-	// 	).data;
-	// }
 }
 
 export const authService = new AuthService();

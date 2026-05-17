@@ -36,15 +36,15 @@ export function Complete() {
 					{!isError ? (
 						<div className='flex flex-col gap-4 justify-center'>
 							<h4 className='text-description_grey text-24 md:text-28 font-500 leading-120'>
-								Thank you! 🎉
+								Дякуємо!
 							</h4>
 							<h3 className='text-black text-36 md:text-40 font-400 leading-110'>
-								Your order has been <br /> received
+								Ваше замовлення <br /> отримано
 							</h3>{" "}
 						</div>
 					) : (
 						<h3 className='text-red text-36 md:text-40 font-400 leading-110'>
-							We have some error
+							Сталася помилка
 						</h3>
 					)}
 					<div className='flex flex-row gap-10'>
@@ -54,6 +54,7 @@ export function Complete() {
 									src={val.image}
 									alt={val.image}
 									quantity={val.quantity}
+									key={val.image}
 								/>
 							))}
 					</div>
@@ -61,7 +62,7 @@ export function Complete() {
 					{!isError && (
 						<Button
 							className='w-fit px-10 py-3 rounded-full'
-							text='Purchase history'
+							text='Історія покупок'
 							onClick={() => router.push(PAGE.ORDERS.link)}
 						/>
 					)}

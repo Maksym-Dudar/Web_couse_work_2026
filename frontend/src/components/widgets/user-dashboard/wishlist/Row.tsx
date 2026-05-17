@@ -31,9 +31,9 @@ export function Row({
 					image={image}
 				/>
 			</Cell>
-			<Cell children={price} />
+			<Cell>{price}</Cell>
 			<Cell>
-				<Button text='Add to cart' onClick={onAction} />
+				<Button text='Додати в кошик' onClick={onAction} />
 			</Cell>
 		</tr>
 	);

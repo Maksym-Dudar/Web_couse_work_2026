@@ -37,7 +37,7 @@ export function InfoProduct({
 						))}
 				</div>
 				<p className='font-inter font-400 text-10 md:text-12 leading-170'>
-					{reviews} Reviews
+					{reviews} відгуків
 				</p>
 			</div>
 			<h3 className='text-36 md:text-40 font-500 leading-110'>{name}</h3>

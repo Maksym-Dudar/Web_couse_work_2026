@@ -25,10 +25,10 @@ export function PaymentMethod() {
 
 	return (
 		<section className='flex flex-col border-1 border-description_gray rounded-lg pt-10 pb-6 px-6 gap-6'>
-			<h5 className='text-20 font-500 leading-140 pb-2'>Payment method</h5>
+			<h5 className='text-20 font-500 leading-140 pb-2'>Спосіб оплати</h5>
 
 			<div className='flex flex-col gap-3'>
-				<Label id='card-number' label='CARD NUMBER' />
+				<Label id='card-number' label='НОМЕР КАРТКИ' />
 				<div className='w-full border border-description_gray rounded-lg h-10 px-4 flex items-center'>
 					<span className='w-full'>
 						<CardNumberElement
@@ -40,7 +40,7 @@ export function PaymentMethod() {
 			</div>
 			<div className='flex flex-row gap-6 w-full justify-between'>
 				<div className='flex flex-col gap-3 w-full'>
-					<Label id='card-expiry' label='EXPIRATION DATE' />
+					<Label id='card-expiry' label='ТЕРМІН ДІЇ' />
 					<div className='w-full border border-description_gray rounded-lg h-10 px-4 flex items-center'>
 						<span className='w-1/2 gap-3'>
 							<CardExpiryElement

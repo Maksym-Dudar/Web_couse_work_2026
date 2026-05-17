@@ -23,7 +23,7 @@ export function ProductPreview({ removeProduct, title, image, color }: Props) {
 				/>
 				<div className=''>
 					<h6 className=''>{title}</h6>
-					<p className=''>Color: {color}</p>
+					<p className=''>Колір: {color}</p>
 				</div>
 			</div>
 		</section>

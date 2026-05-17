@@ -30,7 +30,7 @@ export function HeroProductSection() {
 	const { errorMessage, closeError } = useErrorToast(error, isError);
 
 	if (!Number.isFinite(id)) {
-		return <Error message='Invalid product id' />;
+		return <Error message='Некоректний ID товару' />;
 	}
 
 	if (isLoading) return <Loading />;

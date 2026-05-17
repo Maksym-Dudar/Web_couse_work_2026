@@ -29,30 +29,30 @@ export function CreateShippingMethod() {
 		>
 			<Input
 				variant='outlined'
-				label='LABEL'
-				placeholder='Label'
+				label='НАЗВА'
+				placeholder='Назва'
 				errorMessage={errors.label?.message}
 				{...register("label")}
 			/>
 			<Input
 				variant='outlined'
-				label='METHOD'
-				placeholder='Method'
+				label='МЕТОД'
+				placeholder='Метод'
 				errorMessage={errors.method?.message}
 				{...register("method")}
 			/>
 			<Input
 				variant='outlined'
-				label='FIXED FREE'
-				placeholder='Fixed fee'
+				label='ФІКСОВАНА ОПЛАТА'
+				placeholder='Фіксована оплата'
 				errorMessage={errors.fixedFee?.message}
 				type='number'
 				{...register("fixedFee", { valueAsNumber: true })}
 			/>
 			<Input
 				variant='outlined'
-				label='PERCENT'
-				placeholder='Percent'
+				label='ВІДСОТОК'
+				placeholder='Відсоток'
 				type='number'
 				min={0}
 				max={1}
@@ -60,7 +60,7 @@ export function CreateShippingMethod() {
 				errorMessage={errors.percent?.message}
 				{...register("percent", { valueAsNumber: true })}
 			/>
-			<Button type='submit' text='Create' className='py-3' />
+			<Button type='submit' text='Створити' className='py-3' />
 		</form>
 	);
 }

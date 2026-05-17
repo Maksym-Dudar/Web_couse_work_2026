@@ -9,13 +9,13 @@ interface IContactData {
 
 export const contactData: IContactData[] = [
 	{
-		title: "ADDRESS",
-		subtitle: "Kiyv",
+		title: "АДРЕСА",
+		subtitle: "Київ",
 		src: IMAGE.HOME.src,
 		alt: IMAGE.HOME.alt,
 	},
 	{
-		title: "CONTACT ME",
+		title: "ЗВ'ЯЗОК ЗІ МНОЮ",
 		subtitle: "+38 098 983 1308",
 		src: IMAGE.RECTANGLE.src,
 		alt: IMAGE.RECTANGLE.alt,

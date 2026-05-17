@@ -8,7 +8,6 @@ import {
 	Swiper,
 } from "./_sections";
 import { ProductRow } from "@/features/product/ui/ProductRow";
-// import HomeArticlesSection from "@/features/blog/ui/HomeArticlesSection";
 
 export default function Home() {
 	return (
@@ -19,16 +18,13 @@ export default function Home() {
 					<Lead />
 					<CategoryBanner />
 					<ProductRow sort={Sorts.Newest} take={12}>
-						<span>New</span>
-						<span>Arrivals</span>
+						<span>Нові</span>
+						<span>надходження</span>
 					</ProductRow>
 					<Advantages />
 				</div>
 			</PaddingXLayouts>
 			<DiscountBanner />
-			{/* <PaddingXLayouts>
-				<HomeArticlesSection />
-			</PaddingXLayouts> */}
 		</>
 	);
 }

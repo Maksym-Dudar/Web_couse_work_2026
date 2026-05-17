@@ -1,5 +1,5 @@
 export default function page() {
   return <section>
-Dashboard
+Панель адміністратора
   </section>;
 }

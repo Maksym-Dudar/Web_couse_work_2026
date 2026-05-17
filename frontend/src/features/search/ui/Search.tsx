@@ -16,7 +16,7 @@ export function Search() {
 				<input
 					id='search'
 					type='text'
-					placeholder='Search'
+					placeholder='Пошук'
 					className=' flex text-14 font-400 leading-160 font-inter pl-11 py-2 border border-description_grey rounded-lg w-full z-50'
 					value={search}
 					onChange={handleInputChange}

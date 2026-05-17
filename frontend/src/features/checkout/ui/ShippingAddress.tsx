@@ -21,11 +21,11 @@ export function ShippingAddress({
 }: Props) {
 	return (
 		<section className='flex flex-col gap-3 border-1 border-description_gray rounded-lg pt-10 pb-6 px-6'>
-			<h5 className='text-20 font-500 leading-140 pb-2'>Shipping Address</h5>
+			<h5 className='text-20 font-500 leading-140 pb-2'>Адреса доставки</h5>
 			<Input
 				variant='outlined'
-				label='STREET ADDRESS'
-				placeholder='Street Address'
+				label='ВУЛИЦЯ'
+				placeholder='Вулиця'
 				disabled={disabled}
 				errorMessage={errors.street?.message}
 				{...register("street")}
@@ -36,8 +36,8 @@ export function ShippingAddress({
 				disabled={disabled}
 				render={({ field }) => (
 					<CustomSelect
-						label='COUNTRY'
-						placeholder='Country'
+						label='КРАЇНА'
+						placeholder='Країна'
 						className='w-full '
 						options={options}
 						styleType='outlined'
@@ -50,8 +50,8 @@ export function ShippingAddress({
 			/>
 			<Input
 				variant='outlined'
-				label='TOWN / CITY'
-				placeholder='Town / City'
+				label='МІСТО'
+				placeholder='Місто'
 				disabled={disabled}
 				errorMessage={errors.city?.message}
 				{...register("city")}
@@ -59,16 +59,16 @@ export function ShippingAddress({
 			<div className='flex flex-row gap-2 sm:gap-3 md:gap-4 lg:gap-5 xl:gap-6 '>
 				<Input
 					variant='outlined'
-					label='STATE'
-					placeholder='State'
+					label='ОБЛАСТЬ'
+					placeholder='Область'
 					disabled={disabled}
 					errorMessage={errors.state?.message}
 					{...register("state")}
 				/>
 				<Input
 					variant='outlined'
-					label='ZIP CODE'
-					placeholder='Zip Code'
+					label='ПОШТОВИЙ ІНДЕКС'
+					placeholder='Поштовий індекс'
 					disabled={disabled}
 					errorMessage={errors.zipCode?.message}
 					{...register("zipCode")}
@@ -76,8 +76,8 @@ export function ShippingAddress({
 			</div>
 			<Input
 				variant='outlined'
-				label='BUILDING NUMBER'
-				placeholder='Building Number'
+				label='НОМЕР БУДИНКУ'
+				placeholder='Номер будинку'
 				disabled={disabled}
 				errorMessage={errors.buildingNumber?.message}
 				{...register("buildingNumber")}

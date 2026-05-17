@@ -34,7 +34,7 @@ export function SideMenu({ pathname, logOut }: Props) {
 				className='py-1 text-description_grey font-inter font-500 text-18 sm:text-16 leading-160 cursor-pointer'
 				onClick={logOut}
 			>
-				Log Out
+				Вийти
 			</button>
 		</menu>
 	);

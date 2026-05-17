@@ -5,15 +5,15 @@ export interface IImage {
 class ImageConfig {
 	ARROW: IImage = {
 		src: "/ui/arrow/arrow_short.svg",
-		alt: "arrow",
+		alt: "стрілка",
 	};
 	ARROW_BLACK: IImage = {
 		src: "/ui/arrow/arrow_black.svg",
-		alt: "arrow",
+		alt: "стрілка",
 	};
 	ARROW_WHITE: IImage = {
 		src: "/ui/arrow/arrow_white.svg",
-		alt: "arrow",
+		alt: "стрілка",
 	};
 	FACEBOOK_BLACK: IImage = {
 		src: "/ui/social/facebook_black.svg",
@@ -33,15 +33,15 @@ class ImageConfig {
 	};
 	SEARCH: IImage = {
 		src: "/ui/icon/search.svg",
-		alt: "search",
+		alt: "пошук",
 	};
 	SHOPPING_BAG: IImage = {
 		src: "/ui/icon/shopping_bag.svg",
-		alt: "bag",
+		alt: "кошик",
 	};
 	USER_ICON: IImage = {
 		src: "/ui/icon/user_icon.svg",
-		alt: "user",
+		alt: "користувач",
 	};
 	YOUTUBE_BLACK: IImage = {
 		src: "/ui/social/youtube_black.svg",
@@ -57,138 +57,117 @@ class ImageConfig {
 	};
 	LIKE_ACTIVE: IImage = {
 		src: "/ui/reaction/like_active.svg",
-		alt: "email",
+		alt: "додано до списку бажань",
 	};
 	LIKE_NOT_ACTIVE: IImage = {
 		src: "/ui/reaction/like_not_active.svg",
-		alt: "email",
+		alt: "додати до списку бажань",
 	};
 	STAR_ACTIVE: IImage = {
 		src: "/ui/reaction/star_active.svg",
-		alt: "email",
+		alt: "зірка",
 	};
 	STAR_NOT_ACTIVE: IImage = {
 		src: "/ui/reaction/star_not_active.svg",
-		alt: "email",
+		alt: "порожня зірка",
 	};
 	DELIVERY: IImage = {
 		src: "/market/images/main_page/advantages/fast_delivery.svg",
-		alt: "delivery",
+		alt: "доставка",
 	};
 	MONEY: IImage = {
 		src: "/market/images/main_page/advantages/money.svg",
-		alt: "money",
+		alt: "гроші",
 	};
 	PROTECTION: IImage = {
 		src: "/market/images/main_page/advantages/protection.svg",
-		alt: "protection",
+		alt: "захист",
 	};
 	CAMERA: IImage = {
 		src: "/ui/icon/camera.svg",
-		alt: "Camera",
+		alt: "камера",
 	};
 	EDIT: IImage = {
 		src: "/ui/icon/edit.svg",
-		alt: "Edit",
+		alt: "редагувати",
 	};
 	RECTANGLE: IImage = {
 		src: "/ui/icon/rectangle.svg",
-		alt: "rectangle",
+		alt: "іконка контакту",
 	};
 	HOME: IImage = {
 		src: "/ui/icon/home.svg",
-		alt: "home",
+		alt: "дім",
 	};
 	CONTACT_MAIL: IImage = {
 		src: "/ui/icon/contact_mail.svg",
-		alt: "mail",
+		alt: "пошта",
 	};
 	EYE_OPEN: IImage = {
 		src: "/ui/reaction/eye_open.svg",
-		alt: "Open eye",
+		alt: "показати пароль",
 	};
 	EYE_CLOSE: IImage = {
 		src: "/ui/reaction/eye_close.svg",
-		alt: "Close eye",
+		alt: "приховати пароль",
 	};
 	CHECK_MARK: IImage = {
 		src: "/ui/icon/check_mark.svg",
-		alt: "check_mark",
+		alt: "позначка",
 	};
-
-	//image
 
 	MY_PHOTO: IImage = {
 		src: "/contact/me.jpg",
-		alt: "Me",
+		alt: "Моє фото",
 	};
 
-	//footer
 	FOOTER_BANNER: IImage = {
 		src: "/market/images/footer_banner/footer_banner.png",
-		alt: "banner",
+		alt: "банер",
 	};
 
-	// home
 	PATH_IMAGE_SLIDER: IImage[] = [
 		{
-			alt: "slide1",
+			alt: "слайд 1",
 			src: "/market/images/main_page/slider/slide_1.png",
 		},
 		{
-			alt: "slide2",
+			alt: "слайд 2",
 			src: "/market/images/main_page/slider/slide_2.png",
 		},
 		{
-			alt: "slide3",
+			alt: "слайд 3",
 			src: "/market/images/main_page/slider/slide_3.png",
 		},
 	];
 	CATEGORY_BANNER: IImage[] = [
 		{
 			src: "/market/images/main_page/banner_grid/big_banner.png",
-			alt: "Banner 1",
+			alt: "Банер 1",
 		},
 		{
 			src: "/market/images/main_page/banner_grid/small_banner_1.png",
-			alt: "Banner 2",
+			alt: "Банер 2",
 		},
 		{
 			src: "/market/images/main_page/banner_grid/small_banner_2.png",
-			alt: "Banner 3",
+			alt: "Банер 3",
 		},
 	];
 
-	// BIG_BANNER: IImage = {
-	// 	src: "/market/images/main_page/banner_grid/big_banner.png",
-	// 	alt: "Banner 1",
-	// };
-
-	// SMALL_BANNER_1: IImage = {
-	// 	src: "/market/images/main_page/banner_grid/small_banner_1.png",
-	// 	alt: "Banner 2",
-	// };
-
-	// SMALL_BANNER_2: IImage = {
-	// 	src: "/market/images/main_page/banner_grid/small_banner_2.png",
-	// 	alt: "Banner 3",
-	// };
-
 	DISCOUNT_BANNER: IImage = {
 		src: "/market/images/main_page/discount_banner/banner.png",
-		alt: "Banner",
+		alt: "Банер зі знижкою",
 	};
 
-	//shop
 	SHOP_BANNER: IImage = {
 		src: "/market/images/shop_page/hero_banner/hero_banner.png",
-		alt: "Shop Banner",
+		alt: "Банер магазину",
 	};
 
-	// auth
 	AUTH_BANNER: IImage = {
 		src: "/auth/banner.png",
-		alt: "Auth Banner",
+		alt: "Банер авторизації",
 	};
 }
 

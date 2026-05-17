@@ -1,23 +1,23 @@
 import { z } from "zod";
 
 export const CheckoutSchema = z.object({
-	firstName: z.string().nonempty("This area mandatory"),
-	lastName: z.string().nonempty("This area mandatory"),
+	firstName: z.string().nonempty("Це поле обов'язкове"),
+	lastName: z.string().nonempty("Це поле обов'язкове"),
 	phone: z
 		.string()
-		.length(10, "Phone number must be exactly 10 characters")
-		.nonempty("This area mandatory"),
-	email: z.email("Email address invalidate").nonempty("This area mandatory"),
+		.length(10, "Номер телефону має містити рівно 10 символів")
+		.nonempty("Це поле обов'язкове"),
+	email: z.email("Некоректна email-адреса").nonempty("Це поле обов'язкове"),
 
-	street: z.string().nonempty("This area mandatory"),
-	country: z.string().nonempty("This area mandatory"),
-	state: z.string().nonempty("This area mandatory"),
-	city: z.string().nonempty("This area mandatory"),
+	street: z.string().nonempty("Це поле обов'язкове"),
+	country: z.string().nonempty("Це поле обов'язкове"),
+	state: z.string().nonempty("Це поле обов'язкове"),
+	city: z.string().nonempty("Це поле обов'язкове"),
 	buildingNumber: z.string(),
 	zipCode: z
 		.string()
-		.length(5, "Zip code must be exactly 5 characters")
-		.nonempty("This area mandatory"),
+		.length(5, "Поштовий індекс має містити рівно 5 символів")
+		.nonempty("Це поле обов'язкове"),
 });
 
 export type CheckoutSchema = z.infer<typeof CheckoutSchema>;

@@ -7,6 +7,7 @@ import { useForm } from "react-hook-form";
 import { ContactMailFormSchema } from "../model/contact-mail.schema";
 import { useMutation } from "@tanstack/react-query";
 import { useErrorToast } from "@/hooks/useErrorToast";
+import type { ISendMailDto } from "@/services/requests/email/dto.type";
 
 export function ContactMailForm() {
 	const { register, handleSubmit } = useForm<ContactMailFormSchema>({
@@ -31,21 +32,21 @@ export function ContactMailForm() {
 			)}{" "}
 			<form onSubmit={submit} className='flex flex-col w-full gap-2'>
 				<Input
-					label='FULL NAME'
-					placeholder='Your name'
+					label="ПОВНЕ ІМ'Я"
+					placeholder="Ваше ім'я"
 					{...register("name")}
 				/>
 				<Input
-					label='EMAIL ADDRESS'
-					placeholder='Your email'
+					label='EMAIL'
+					placeholder='Ваш email'
 					{...register("email")}
 				/>
 				<TextArea
-					label='MESSAGE'
-					placeholder='Your message'
+					label='ПОВІДОМЛЕННЯ'
+					placeholder='Ваше повідомлення'
 					{...register("message")}
 				/>
-				<Button type='submit' className="py-2 mt-3" text='Send Message' />
+				<Button type='submit' className="py-2 mt-3" text='Надіслати повідомлення' />
 			</form>
 		</>
 	);

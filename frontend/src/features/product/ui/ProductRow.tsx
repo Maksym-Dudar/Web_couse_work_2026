@@ -26,7 +26,7 @@ export function ProductRow({ children, ...params }: Props) {
 					<h3 className='text-32 sm:text-36 md:text-38 lg:text-40 font-500 leading-110 grid grid-rows-2 h-20'>
 						{children}
 					</h3>
-					<ArrowLink title='More Products' link={PAGE.SHOP.link} />
+					<ArrowLink title='Більше товарів' link={PAGE.SHOP.link} />
 				</div>
 				<div
 					ref={scrollRef}

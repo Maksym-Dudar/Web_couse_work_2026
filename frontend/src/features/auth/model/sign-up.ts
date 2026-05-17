@@ -2,13 +2,13 @@ import { passwordSchema } from "@/shared/model/password.schema";
 import { z } from "zod";
 
 export const SignUpSchema = z.object({
-	firstName: z.string("First name invalidate").nonempty("This area mandatory"),
-	email: z.email("Email address invalidate").nonempty("This area mandatory"),
-	password: passwordSchema().nonempty("This area mandatory"),
-	confirmPassword: passwordSchema().nonempty("This area mandatory"),
+	firstName: z.string("Некоректне ім'я").nonempty("Це поле обов'язкове"),
+	email: z.email("Некоректна email-адреса").nonempty("Це поле обов'язкове"),
+	password: passwordSchema().nonempty("Це поле обов'язкове"),
+	confirmPassword: passwordSchema().nonempty("Це поле обов'язкове"),
 	isAgree: z.literal(
 		true,
-		"You must agree with Privacy Policy end Terms of Use",
+		"Потрібно погодитися з Політикою конфіденційності та Умовами використання",
 	),
 });
 

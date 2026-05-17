@@ -20,7 +20,7 @@ export function useSignUp() {
 
 	const submit = (data: SignUpSchema) => {
 		if (data.password !== data.confirmPassword) {
-			setError(new Error("Passwords don't match"));
+			setError(new Error("Паролі не збігаються"));
 			return;
 		}
 

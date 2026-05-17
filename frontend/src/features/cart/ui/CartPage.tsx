@@ -53,33 +53,34 @@ export function CartPage() {
 				<table className='w-full h-fit'>
 					<thead className='border-b-1 border-black'>
 						<tr>
+							<ColumnTitle variant='black' className='text-left pb-6'>
+								Товар
+							</ColumnTitle>
 							<ColumnTitle
-								children='Product'
-								variant='black'
-								className='text-left pb-6'
-							/>
-							<ColumnTitle
-								children='Quantity'
 								variant='black'
 								className='hidden sm:table-cell lg:hidden xl:table-cell text-center pb-6'
-							/>
+							>
+								Кількість
+							</ColumnTitle>
 							<ColumnTitle
-								children='Price'
 								variant='black'
 								className='hidden sm:table-cell lg:hidden xl:table-cell text-right pb-6'
-							/>
+							>
+								Ціна
+							</ColumnTitle>
 							<ColumnTitle
-								children='Subtotal'
 								variant='black'
 								className='hidden sm:table-cell lg:hidden xl:table-cell text-right pb-6'
-							/>
+							>
+								Проміжний підсумок
+							</ColumnTitle>
 						</tr>
 					</thead>
 					<tbody>{rows}</tbody>
 				</table>
 				<aside className='flex flex-col gap-4 p-6 sm:p-4 lg:p-6 border-1 border-description_gray rounded-lg min-w-full lg:min-w-80 xl:min-w-90 h-fit'>
 					<h3 className='text-18 sm:text-18 lg:text-20 font-500 leading-140'>
-						Cart summary
+						Підсумок кошика
 					</h3>
 					<div className='flex flex-col gap-3 w-full'>
 						{deliveryMethods?.map((item) => (

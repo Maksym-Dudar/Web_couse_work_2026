@@ -19,14 +19,14 @@ export function CartFooter({
 	onCheckout,
 	close,
 }: Props) {
-	const subtotalText = isLoading ? "Loading..." : subtotal;
-	const totalText = isLoading ? "Loading..." : total;
+	const subtotalText = isLoading ? "Завантаження..." : subtotal;
+	const totalText = isLoading ? "Завантаження..." : total;
 	const buttonPadding = isHaveButtonLink ? "pt-4" : "pt-8";
 	return (
 		<section className='flex flex-col w-full'>
 			<div className='flex flex-row justify-between border-b border-grey py-3'>
 				<p className='text-black font-inter text-14 lg:text-16 font-400 leading-160'>
-					Subtotal
+					Проміжний підсумок
 				</p>
 				<p className='text-black font-inter text-14 lg:text-16 font-500 leading-160'>
 					{subtotalText}
@@ -34,7 +34,7 @@ export function CartFooter({
 			</div>
 			<div className='flex flex-row justify-between py-3'>
 				<p className='text-black text-18 lg:text-20 font-500 leading-140'>
-					Total
+					Разом
 				</p>
 				<p className='text-black text-18 lg:text-20 font-500 leading-140'>
 					{totalText}
@@ -45,7 +45,7 @@ export function CartFooter({
 			>
 				<Button
 					type='button'
-					text='Checkout'
+					text='Оформити замовлення'
 					className='py-2 lg:py-3'
 					onClick={() => {
 						if (close) {

@@ -11,28 +11,28 @@ export function AccountPassword({ register, errors }: Props) {
 	return (
 		<article className='flex flex-col w-full gap-6'>
 			<h4 className='text-16 sm:text-18 md:text-20 font-600 leading-160'>
-				Password
+				Пароль
 			</h4>
 			<div className='flex flex-col w-full gap-1'>
 				<Input
-					label='OLD PASSWORD'
+					label='СТАРИЙ ПАРОЛЬ'
 					variant='outlined'
 					errorMessage={errors.oldPassword?.message}
-					placeholder='Old password'
+					placeholder='Старий пароль'
 					{...register("oldPassword")}
 				/>
 				<Input
-					label='NEW PASSWORD'
+					label='НОВИЙ ПАРОЛЬ'
 					variant='outlined'
 					errorMessage={errors.newPassword?.message}
-					placeholder='New password'
+					placeholder='Новий пароль'
 					{...register("newPassword")}
 				/>
 				<Input
-					label='REPEAT NEW PASSWORD'
+					label='ПОВТОРІТЬ НОВИЙ ПАРОЛЬ'
 					variant='outlined'
 					errorMessage={errors.confirmNewPassword?.message}
-					placeholder='Repeat new password'
+					placeholder='Повторіть новий пароль'
 					{...register("confirmNewPassword")}
 				/>
 			</div>

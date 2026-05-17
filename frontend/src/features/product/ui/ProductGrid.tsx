@@ -36,7 +36,7 @@ export function ProductGrid() {
 						onClick={() => fetchNextPage()}
 						disabled={isFetchingNextPage}
 					>
-						{isFetchingNextPage ? "Loading..." : "Show more"}
+						{isFetchingNextPage ? "Завантаження..." : "Показати більше"}
 					</button>
 				)}
 			</article>

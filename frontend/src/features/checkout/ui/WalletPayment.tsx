@@ -12,7 +12,7 @@ export function WalletPayment() {
 			country: "PL", 
 			currency: "pln", 
 			total: {
-				label: "Total",
+        label: "Разом",
 				amount: 200, 
 			},
 			requestPayerName: true,

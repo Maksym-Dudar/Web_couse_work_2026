@@ -4,25 +4,25 @@ export const ADVANTAGES_DATA = [
 	{
 		src: IMAGE.DELIVERY.src,
 		alt: IMAGE.DELIVERY.alt,
-		title: "Free Shipping",
-		subtitle: "Order above $200",
+		title: "Безкоштовна доставка",
+		subtitle: "Для замовлень від $200",
 	},
 	{
-		title: "Money-back",
+		title: "Повернення коштів",
 		src: IMAGE.MONEY.src,
 		alt: IMAGE.MONEY.alt,
-		subtitle: "30 days guarantee",
+		subtitle: "Гарантія 30 днів",
 	},
 	{
-		title: "Secure Payments",
+		title: "Безпечні платежі",
 		src: IMAGE.PROTECTION.src,
 		alt: IMAGE.PROTECTION.alt,
-		subtitle: "Secured by Stripe",
+		subtitle: "Захищено Stripe",
 	},
 	{
-		title: "24/7 Support",
+		title: "Підтримка 24/7",
 		src: IMAGE.RECTANGLE.src,
 		alt: IMAGE.RECTANGLE.alt,
-		subtitle: "Phone and Email support",
+		subtitle: "Підтримка телефоном та email",
 	},
 ];

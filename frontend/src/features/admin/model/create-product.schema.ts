@@ -7,17 +7,17 @@ export const CreateProductSchema = z.object({
 	offerExpires: z.date(),
 	sale: z
 		.number()
-		.max(1, "Enter value between 0 and 1")
-		.min(0, "Enter value between 0 and 1"),
-	title: z.string().nonempty("This field is mandatory"),
-	measurements: z.string().nonempty("This field is mandatory"),
-	price: z.number().min(0, "This field is mandatory"),
-	quantityWarehouse: z.number().min(0, "This field is mandatory"),
-	color: z.string().nonempty("This field is mandatory"),
-	description: z.string().nonempty("This field is mandatory"),
+		.max(1, "Введіть значення від 0 до 1")
+		.min(0, "Введіть значення від 0 до 1"),
+	title: z.string().nonempty("Це поле обов'язкове"),
+	measurements: z.string().nonempty("Це поле обов'язкове"),
+	price: z.number().min(0, "Це поле обов'язкове"),
+	quantityWarehouse: z.number().min(0, "Це поле обов'язкове"),
+	color: z.string().nonempty("Це поле обов'язкове"),
+	description: z.string().nonempty("Це поле обов'язкове"),
 	images: z
 		.custom<FileList>()
-		.refine((files) => files?.length > 0, "Select images"),
+		.refine((files) => files?.length > 0, "Оберіть зображення"),
 	category: z
 		.array(
 			z.union(
@@ -27,7 +27,7 @@ export const CreateProductSchema = z.object({
 				],
 			),
 		)
-		.min(1, "Select at least one category"),
+		.min(1, "Оберіть щонайменше одну категорію"),
 });
 
 export type CreateProductSchema = z.infer<typeof CreateProductSchema>;

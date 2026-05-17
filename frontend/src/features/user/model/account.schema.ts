@@ -8,9 +8,9 @@ const ResetPasswordSchema = z.object({
 });
 
 const UserDetailsSchema = z.object({
-	firstName: z.string("First name invalidate"),
-	lastName: z.string("Last name invalidate"),
-	email: z.email("Email address invalidate"),
+	firstName: z.string("Некоректне ім'я"),
+	lastName: z.string("Некоректне прізвище"),
+	email: z.email("Некоректна email-адреса"),
 });
 
 export const AccountSchema = ResetPasswordSchema.merge(UserDetailsSchema);

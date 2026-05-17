@@ -26,8 +26,9 @@ export function ForgotPassword() {
 	const { errorMessage, closeError } = useErrorToast(error, isError);
 
 	const onSubmit = handleSubmit((data: ForgotPasswordSchema) => submit(data));
-	const onSendCode = () => generateOtp({ email: watch("email") });
+	const email = watch("email");
 
+	const onSendCode = () => generateOtp({ email });
 	return (
 		<>
 			{!!errorMessage && (
@@ -43,7 +44,7 @@ export function ForgotPassword() {
 				<section className='flex flex-col gap-4'>
 					<div className='flex flex-row gap-4 w-full'>
 						<Input
-							placeholder='Your email address'
+							placeholder='Ваш email'
 							variant='borderless'
 							errorMessage={errors.email?.message}
 							disabled={isEmailLocked}
@@ -51,29 +52,29 @@ export function ForgotPassword() {
 						/>
 						<Button
 							type='button'
-							text='Send Code'
+							text='Надіслати код'
 							className='w-3/6 items-center h-10 top-0'
 							onClick={onSendCode}
 						/>
 					</div>
 					<Input
-						placeholder='Enter your otp code'
+						placeholder='Введіть код підтвердження'
 						variant='borderless'
 						errorMessage={errors.otpCode?.message}
 						{...register("otpCode")}
 					/>
 					<PasswordInput
-						placeholder='New password'
+						placeholder='Новий пароль'
 						errorMessage={errors.password?.message}
 						{...register("password")}
 					/>
 					<PasswordInput
-						placeholder='Confirm password'
+						placeholder='Підтвердьте пароль'
 						errorMessage={errors.confirmPassword?.message}
 						{...register("confirmPassword")}
 					/>
 					<Button
-						text='Change Password'
+						text='Змінити пароль'
 						type='submit'
 						className='py-2'
 						disabled={isPending}

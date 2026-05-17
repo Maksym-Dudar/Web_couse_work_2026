@@ -3,7 +3,6 @@
 import Radio from "@/components/ui/inputs/Radio";
 import CustomSelect from "@/components/ui/select/CustomSelect";
 import type { SelectOption } from "@/components/ui/select/type";
-import { useState } from "react";
 import type { TAddressMode } from "./CheckoutPage";
 
 
@@ -24,22 +23,22 @@ export function AddressMode({
 }: Props) {
 	return (
 		<section className='flex flex-col gap-6 border-1 border-description_gray rounded-lg py-10 px-6'>
-			<h5 className='text-20 font-500 leading-140'>Address Mode</h5>
+			<h5 className='text-20 font-500 leading-140'>Режим адреси</h5>
 			<Radio
-				label='Create address'
+				label='Створити адресу'
 				name='address-settings'
 				checked={addressMode == "new"}
 				onChange={onCreateAddress}
 			/>
 			<Radio
-				label='Use an already existing address'
+				label='Використати наявну адресу'
 				checked={addressMode == "existing"}
 				name='address-settings'
 				onChange={onExistingAddress}
 			/>
 			<CustomSelect
-				label='EXISTING ADDRESS'
-				placeholder='Select address'
+				label='НАЯВНА АДРЕСА'
+				placeholder='Оберіть адресу'
 				styleType='outlined'
 				options={options}
 				value={null}

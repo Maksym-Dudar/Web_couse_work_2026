@@ -3,4 +3,4 @@ import { string } from "zod";
 
 export const passwordSchema = () =>
     string()
-        .min(minLengthPassword, "Password too short");
+        .min(minLengthPassword, "Пароль занадто короткий");

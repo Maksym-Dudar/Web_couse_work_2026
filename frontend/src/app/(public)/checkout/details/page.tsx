@@ -4,7 +4,7 @@ import { useCheckout } from "@/features/checkout/hook/useCheckout";
 import { CheckoutPage } from "@/features/checkout/ui/CheckoutPage";
 import PaymentProvider from "@/provider/stripe/StripeProvider";
 
-export default function page() {
+export default function Page() {
 		const {
 			orderData,
 		} = useCheckout();

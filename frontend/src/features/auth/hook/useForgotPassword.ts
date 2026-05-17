@@ -31,7 +31,7 @@ export function useForgotPassword() {
 
 	const submit = (data: ForgotPasswordSchema) => {
 		if (data.password != data.confirmPassword) {
-			setError(new Error("Passwords don't match"));
+			setError(new Error("Паролі не збігаються"));
 			return;
 		}
 		const { confirmPassword, ...payload } = data;

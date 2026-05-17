@@ -5,7 +5,7 @@ export function CopyrightPolicy() {
 	return (
 		<section className='flex flex-col-reverse md:flex-row gap-7 items-center'>
 			<p className='text-white_grey text-8 sm:text-10 md:text-12 font-400 leading-170'>
-				Copyright © 2023 3legant. All rights reserved
+				Copyright © 2023 3legant. Усі права захищено
 			</p>
 			<div className='flex flex-row gap-7'>
 				{TERMS_PRIVACY.map((item) => (

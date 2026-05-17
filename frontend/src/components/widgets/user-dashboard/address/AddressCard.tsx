@@ -30,7 +30,7 @@ export function AddressCard({ name, phoneNumber, address, id }: Props) {
 						}
 						className='text-16 font-600 leading-160 text-description_grey'
 					>
-						Edit
+						Редагувати
 					</Link>
 				</button>
 			</section>

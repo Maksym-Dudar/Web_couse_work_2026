@@ -23,7 +23,7 @@ export function AddressDashboard() {
 			)}
 			<section className='w-full sm:px-4 xl:px-16'>
 				<h4 className='text-16 sm:text-18 md:text-20 font-600 leading-160 pb-6'>
-					Address
+					Адреси
 				</h4>
 				<div className='grid grid-cols-2 sm:grid-cols-1 lg:grid-cols-2 gap-6 pb-10 w-full'>
 					{addressData?.map((val) => (

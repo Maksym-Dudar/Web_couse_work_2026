@@ -3,9 +3,9 @@ import { passwordSchema } from "@/shared/model/password.schema";
 import { z } from "zod";
 
 export const ContactMailFormSchema = z.object({
-	email: z.email("Email address invalidate").nonempty("This area mandatory"),
-	name: z.string().nonempty("This area mandatory"),
-	message: z.string().nonempty("This area mandatory"),
+	email: z.email("Некоректна email-адреса").nonempty("Це поле обов'язкове"),
+	name: z.string().nonempty("Це поле обов'язкове"),
+	message: z.string().nonempty("Це поле обов'язкове"),
 });
 
 export type ContactMailFormSchema = z.infer<typeof ContactMailFormSchema>;

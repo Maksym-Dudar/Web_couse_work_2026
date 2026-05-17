@@ -14,7 +14,7 @@ export function CompleteDetailTable({
 	total,
 	shippingMethod,
 }: Props) {
-	const monthName = new Intl.DateTimeFormat("us-US", {
+	const monthName = new Intl.DateTimeFormat("uk-UA", {
 		month: "long",
 	}).format(createdAt);
 	const date =
@@ -22,10 +22,10 @@ export function CompleteDetailTable({
 	return (
 		<table>
 			<tbody>
-				<Row title='Order code:' value={String(id)} />
-				<Row title='Created at:' value={date} />
-				<Row title='Total:' value={"$" + total} />
-				<Row title='Shipping method:' value={shippingMethod.label} />
+				<Row title='Код замовлення:' value={String(id)} />
+				<Row title='Створено:' value={date} />
+				<Row title='Разом:' value={"$" + total} />
+				<Row title='Спосіб доставки:' value={shippingMethod.label} />
 			</tbody>
 		</table>
 	);

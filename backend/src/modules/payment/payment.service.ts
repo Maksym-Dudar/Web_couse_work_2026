@@ -14,11 +14,11 @@ export class PaymentService {
       throw new NotFoundException('Order not fount');
     }
     return this.stripeService.createPaymentIntent({
-      amount: 200,
-      currency: 'usd',
-      metadata: {
-        orderId: 1,
-      },
-    });
+			amount: Number(order.total) * 100,
+			currency: "usd",
+			metadata: {
+				orderId: order.id,
+			},
+		});
   }
 }

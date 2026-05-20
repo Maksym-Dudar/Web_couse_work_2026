@@ -42,7 +42,7 @@ export class ProductController {
 
   @Get('search')
   findManySearch(@Query() query: FindManySearchDto) {
-    return this.productService.findManySearch(query.world);
+    return this.productService.findManySearch(query.search);
   }
 
   @Get('bag')

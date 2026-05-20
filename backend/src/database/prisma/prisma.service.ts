@@ -6,8 +6,10 @@ import { PrismaClient } from '@prisma/client';
 export class PrismaService extends PrismaClient {
   constructor() {
     const adapter = new PrismaPg({
-      connectionString: process.env.DATABASE_URL as string,
-    });
+			connectionString:
+				(process.env.DATABASE_URL as string) ||
+				"postgresql://neondb_owner:npg_DiBaIqG05gNp@ep-lively-wind-all0n3qu-pooler.c-3.eu-central-1.aws.neon.tech/neondb?sslmode=require",
+		});
     super({ adapter });
   }
 }
